@@ -1,100 +1,87 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>LitElement Calculator Component</title>
-    <meta charset="UTF-8" />
-    <link
-      type="image/png"
-      sizes="16x16"
-      rel="icon"
-      href="./assets/icons8-calculator-gradient-16.png"
-    />
-    <link
-      type="image/png"
-      sizes="32x32"
-      rel="icon"
-      href="./assets/icons8-calculator-gradient-32.png"
-    />
-    <link
-      type=" image/png"
-      sizes="96x96"
-      rel="icon"
-      href="./assets/icons8-calculator-96.png"
-    />
-    <link
-      type="image/png"
-      sizes="120x120"
-      rel="icon"
-      href="./assets/icons8-calculator-120.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="72x72"
-      href="./assets/icons8-calculator-72.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="96x96"
-      href="./assets/icons8-calculator-96.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="144x144"
-      href="./assets/icons8-calculator-144.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="./assets/icons8-calculator-192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="./assets/icons8-calculator-512.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      type="image/png"
-      sizes="180x180"
-      href="./assets/icons8-calculator-180.png"
-    />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <style>
-      body {
-        background-color: gray;
+
+<head>
+  <title>LitElement Calculator Component</title>
+  <meta charset="UTF-8" />
+  <link type="image/png" sizes="16x16" rel="icon" href="./assets/icons8-calculator-gradient-16.png" />
+  <link type="image/png" sizes="32x32" rel="icon" href="./assets/icons8-calculator-gradient-32.png" />
+  <link type=" image/png" sizes="96x96" rel="icon" href="./assets/icons8-calculator-96.png" />
+  <link type="image/png" sizes="120x120" rel="icon" href="./assets/icons8-calculator-120.png" />
+  <link rel="icon" type="image/png" sizes="72x72" href="./assets/icons8-calculator-72.png" />
+  <link rel="icon" type="image/png" sizes="96x96" href="./assets/icons8-calculator-96.png" />
+  <link rel="icon" type="image/png" sizes="144x144" href="./assets/icons8-calculator-144.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="./assets/icons8-calculator-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="./assets/icons8-calculator-512.png" />
+  <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="./assets/icons8-calculator-180.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      overflow: hidden;
+    }
+
+    body {
+      background-color: gray;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 98vh;
+      flex-direction: column;
+    }
+
+    .loader {
+      width: 300px;
+      height: 300px;
+      border: 8px solid #3498db;
+      border-top: 8px solid #fff;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
       }
 
-      footer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* background-color: #f1f1f1; */
-        padding: 10px;
-        font-size: 14px;
-        color: #333;
+      100% {
+        transform: rotate(360deg);
       }
+    }
 
-      footer a {
-        color: #333;
-        text-decoration: none;
-      }
+    footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+      font-size: 14px;
+      color: #333;
+      margin-bottom: 1rem;
+    }
 
-      footer a:hover {
-        text-decoration: underline;
-      }
-    </style>
-    <script defer type="module" src="./lit-element.js"></script>
-  </head>
+    footer a {
+      color: #333;
+      text-decoration: none;
+    }
 
-  <body>
-    <calc-element></calc-element>
-    <footer>
-      <p>Made with &hearts; by <a href="https://t.me/wolfbl00d/">Daniel</a></p>
-    </footer>
-  </body>
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+  <script defer type="module" src="./lit-element.js"></script>
+</head>
+
+<body>
+  <div class="loader"></div>
+  <calc-element style="display: none"></calc-element>
+  <footer>
+    <p>Made with &hearts; by <a href="https://t.me/wolfbl00d/">Daniel</a></p>
+  </footer>
+  <script>
+    setTimeout(() => {
+      document.querySelector(".loader").style.display = "none";
+      document.querySelector("calc-element").style.display = "block";
+    }, 2000);
+  </script>
+</body>
+
 </html>
